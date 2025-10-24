@@ -1,4 +1,4 @@
-const prediction = document.getElementById("warning-prediction");
+let prediction = null; // will be resolved when needed
 
 const SOUND_FILE_PATH = "./assets/prediction.mp3"; // Naming convention is called "SCREAMING_SNAKE_CASE"
 let warnings = [];
@@ -9,30 +9,53 @@ let warningSound = null;
 /////////////////////////////////////////////////////
 
 function loadWarnings() {
-  // Load both warnings and sound
-  Promise.all([
-    fetch("warnings.json").then((response) => response.json()),
-    loadSound(),
-  ])
-    .then(([data]) => {
+  // Load warnings immediately; start loading sound but don't block rendering.
+  loadSound().catch((e) => {
+    console.warn("Sound failed to load (continuing without sound):", e);
+  });
+
+  fetch("warnings.json")
+    .then((response) => response.json())
+    .then((data) => {
       warnings = data.warnings || [];
       setTimeout(showPrediction, 1000); // 1 second delay
     })
-    .catch((error) => console.error("Failed to load resources:", error));
+    .catch((error) => console.error("Failed to load warnings:", error));
 }
 
 function loadSound() {
-  return new Promise((resolve, reject) => {
+  // Resolve even if the audio can't load or canplaythrough never fires (mobile).
+  return new Promise((resolve) => {
     warningSound = new Audio(SOUND_FILE_PATH);
     warningSound.preload = "auto";
 
-    warningSound.addEventListener("canplaythrough", () => {
+    const cleanup = () => {
+      warningSound.removeEventListener("canplaythrough", onReady);
+      warningSound.removeEventListener("loadeddata", onReady);
+      warningSound.removeEventListener("error", onError);
+      clearTimeout(timeoutId);
+    };
+
+    const onReady = () => {
+      cleanup();
       resolve();
-    });
-    warningSound.addEventListener("error", (e) => {
-      console.error("Error loading sound:", e);
-      reject(e);
-    });
+    };
+    const onError = (e) => {
+      console.warn("Error loading sound:", e);
+      cleanup();
+      resolve(); // resolve so UI isn't blocked
+    };
+
+    warningSound.addEventListener("canplaythrough", onReady);
+    warningSound.addEventListener("loadeddata", onReady);
+    warningSound.addEventListener("error", onError);
+
+    // Fallback: if events never fire (mobile/autoplay restrictions), continue after timeout
+    const timeoutId = setTimeout(() => {
+      console.warn("Sound load timeout; continuing without fully loaded audio");
+      cleanup();
+      resolve();
+    }, 3000);
   });
 }
 
@@ -55,6 +78,15 @@ function createRandomPrediction() {
 /////////////////////////////////////////////////////
 
 function showPrediction() {
+  // ensure the element exists (script might run before DOM ready)
+  if (!prediction) prediction = document.getElementById("warning-prediction");
+  if (!prediction) {
+    console.warn(
+      "Missing #warning-prediction element; aborting showPrediction"
+    );
+    return;
+  }
+
   const predictionText = createRandomPrediction();
   prediction.innerHTML = predictionText;
 
