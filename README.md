@@ -1,2 +1,5 @@
-# mr-boney
-A new death warning prediction each time the page loads. This is a project created to test NFC tags on ceramic skull sculptures so they are interactive.
+Mr Boney
+
+#**Overview**
+
+This project is a darkly humorous interactive experience built for a ceramic skull equipped with an NFC tag. When the skull is scanned with a phone, it opens a website that delivers a **random ominous warning** about bizarre, unlikely ways to die.
