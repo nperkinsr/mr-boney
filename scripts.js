@@ -2,9 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWarnings();
 });
 
-document.getElementById("reveal-btn").addEventListener("click", showPrediction);
-
-
 let prediction = null; // will be resolved when needed
 
 const SOUND_FILE_PATH = "./assets/prediction.mp3"; // Naming convention is called "SCREAMING_SNAKE_CASE"
