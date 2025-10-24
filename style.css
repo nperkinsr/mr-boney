@@ -1,0 +1,124 @@
+/* =========================
+   Root Variables & Resets
+   ========================= */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --color1: #acb1cc;
+  --color2: #eff3f9;
+  --color4: #62638d;
+  --color3: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: var(--color4);
+  font-size: 3rem;
+  font-weight: 700;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: var(--white);
+  background-color: var(--color1);
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin: auto;
+}
+
+p {
+  color: var(--black);
+  font-size: 1.3rem;
+  margin: 1.5rem;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(
+      45deg,
+      #0000 calc(25% / 3),
+      #2f2f2f 0 calc(50% / 3),
+      #0000 0 calc(250% / 3),
+      #2f2f2f 0 calc(275% / 3),
+      #0000 0
+    ),
+    linear-gradient(
+      45deg,
+      #2f2f2f calc(25% / 3),
+      #0000 0 calc(50% / 3),
+      #2f2f2f 0 25%,
+      #0000 0 75%,
+      #2f2f2f 0 calc(250% / 3),
+      #0000 0 calc(275% / 3),
+      #2f2f2f 0
+    ),
+    linear-gradient(
+      -45deg,
+      #0000 calc(25% / 3),
+      #2f2f2f 0 calc(50% / 3),
+      #0000 0 calc(250% / 3),
+      #2f2f2f 0 calc(275% / 3),
+      #0000 0
+    ),
+    linear-gradient(
+        -45deg,
+        #2f2f2f calc(25% / 3),
+        #0000 0 calc(50% / 3),
+        #2f2f2f 0 25%,
+        #0000 0 75%,
+        #2f2f2f 0 calc(250% / 3),
+        #0000 0 calc(275% / 3),
+        #2f2f2f 0
+      )
+      #282828;
+  background-size: 64px 64px;
+  background-position: 0 0, 32px 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  background-color: var(--white);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 2px var(--color3);
+  border: 2px solid var(--color3);
+  margin: 20px;
+}
+
+img {
+  width: 60%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.loading-text {
+  opacity: 0;
+}
+
+.warning-text {
+  opacity: 0;
+}
+
+.warning-text.fade-in {
+  animation: fadeIn 2s forwards;
+}
