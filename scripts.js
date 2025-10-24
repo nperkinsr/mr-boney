@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+  loadWarnings();
+});
+
 let prediction = null; // will be resolved when needed
 
 const SOUND_FILE_PATH = "./assets/prediction.mp3"; // Naming convention is called "SCREAMING_SNAKE_CASE"
