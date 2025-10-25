@@ -2,11 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   loadWarnings();
 });
 
-window.addEventListener("load", () => {
-  window.scrollTo(0, 1); // scroll down 1px to hide the bar
-  document.body.classList.add("loaded");
-});
-
 let prediction = null;
 let warnings = [];
 

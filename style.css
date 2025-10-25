@@ -41,7 +41,7 @@ p {
 
 html,
 body {
-  height: 200vh;
+  height: 100vh;
   background-color: #000;
   margin: 0;
   padding: 0;
@@ -88,11 +88,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow-y: scroll;
-}
-
-body.loaded {
-  height: 100vh;
 }
 
 .container {
