@@ -41,6 +41,7 @@ p {
 
 html,
 body {
+  height: 200vh;
   background-color: #000;
   margin: 0;
   padding: 0;
@@ -87,6 +88,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-y: scroll;
+}
+
+body.loaded {
   height: 100vh;
 }
 
@@ -98,6 +103,7 @@ body {
   box-shadow: 5px 5px 2px var(--color3);
   border: 2px solid var(--color3);
   margin: 20px;
+  max-width: 500px;
 }
 
 img {
