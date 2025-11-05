@@ -125,3 +125,9 @@ img {
 .warning-text.fade-in {
   animation: fadeIn 2s forwards;
 }
+
+#warning-prediction {
+  min-height: 2.5em;
+  line-height: 1.2em;
+  display: flex;
+}
