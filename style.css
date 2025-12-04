@@ -41,7 +41,11 @@ p {
 
 html,
 body {
-  height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    touch-action: none;
   background-color: #000;
   margin: 0;
   padding: 0;
@@ -88,7 +92,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-   overflow: hidden;
 }
 
 .container {
