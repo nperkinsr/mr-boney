@@ -16,7 +16,7 @@
 
 h1 {
   color: var(--color4);
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 700;
   font-family: "Caveat", cursive;
   font-optical-sizing: auto;
@@ -31,64 +31,31 @@ h3 {
   padding: 0.8rem;
   border-radius: 8px;
   margin: auto;
+  font-size: 1rem;
 }
 
 p {
   color: var(--black);
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin: 1.5rem;
 }
 
 html,
 body {
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    touch-action: none;
+  height: calc(100vh + 50px);
   background-color: #000;
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
-  background: linear-gradient(
-      45deg,
-      #0000 calc(25% / 3),
-      #2f2f2f 0 calc(50% / 3),
-      #0000 0 calc(250% / 3),
-      #2f2f2f 0 calc(275% / 3),
-      #0000 0
-    ),
-    linear-gradient(
-      45deg,
-      #2f2f2f calc(25% / 3),
-      #0000 0 calc(50% / 3),
-      #2f2f2f 0 25%,
-      #0000 0 75%,
-      #2f2f2f 0 calc(250% / 3),
-      #0000 0 calc(275% / 3),
-      #2f2f2f 0
-    ),
-    linear-gradient(
-      -45deg,
-      #0000 calc(25% / 3),
-      #2f2f2f 0 calc(50% / 3),
-      #0000 0 calc(250% / 3),
-      #2f2f2f 0 calc(275% / 3),
-      #0000 0
-    ),
-    linear-gradient(
-        -45deg,
-        #2f2f2f calc(25% / 3),
-        #0000 0 calc(50% / 3),
-        #2f2f2f 0 25%,
-        #0000 0 75%,
-        #2f2f2f 0 calc(250% / 3),
-        #0000 0 calc(275% / 3),
-        #2f2f2f 0
-      )
-      #282828;
-  background-size: 64px 64px;
-  background-position: 0 0, 32px 32px;
+  background-image: url("assets/seamless_dark_pattern.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  overflow: hidden;
+}
+
+.page-wrapper {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,7 +69,7 @@ body {
   box-shadow: 5px 5px 2px var(--color3);
   border: 2px solid var(--color3);
   margin: 20px;
-  max-width: 500px;
+  max-width: 400px;
 }
 
 img {
@@ -132,6 +99,17 @@ img {
 
 #warning-prediction {
   min-height: 2.5em;
-  line-height: 1.2em;
+  line-height: 1.3em;
   display: flex;
+}
+
+/* Mobile Styles */
+@media (max-width: 450px) {
+  .page-wrapper {
+    align-items: flex-start;
+  }
+
+  .container {
+    margin-top: 20vh;
+  }
 }
