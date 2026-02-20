@@ -82,6 +82,7 @@ hr {
 
 footer > p {
   font-size: 0.7rem;
+  margin-top: -5px;
 }
 
 @keyframes fadeIn {
