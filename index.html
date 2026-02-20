@@ -15,28 +15,39 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
   <link rel=" stylesheet" href="./style.css" />
 </head>
 
 <body>
-<div class="page-wrapper">
-  <div class="container">
+  <div class="page-wrapper">
+    <div class="container">
 
-    <header>
-      <img src="./assets/skull.png" alt="Boney the skeleton mascot">
-      <h1>This is Mr. Boney</h1>
-      <h3>Do not end up like him!</h3>
-    </header>
-    <main>
-      <p id="warning-prediction">
-        <span class="loading-text"><i class="bi bi-x"></i><i class="bi bi-x"></i><i class="bi bi-x"></i> Loading <i
-            class="bi bi-x"></i><i class="bi bi-x"></i><i class="bi bi-x"></i></span>
-      </p>
-    </main>
+      <header>
+        <h1>This is Nigel</h1>
+        <h2>Nigel didn't take this seriously</h2>
+      </header>
+      <main>
+        <div class="lines">
+          <hr>
+          <hr>
+        </div>
+        <p id="warning-prediction">
+          <span class="spinner"></span>
+          <span class="loading-text"></span>
+        </p>
+        <div class="lines">
+          <hr>
+          <hr>
+          <h2>Don't be Nigel</h2>
+      </main>
+      <footer>
+        <p>Nothing dramatic. Just potentially life-altering</p>
+      </footer>
+    </div>
   </div>
-</div>
 
-    <script>
+  <script>
     window.addEventListener('load', () => {
       setTimeout(() => {
         window.scrollTo(0, 50);

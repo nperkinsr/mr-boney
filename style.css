@@ -4,7 +4,7 @@
 :root {
   --black: #000000;
   --white: #ffffff;
-  --color1: #acb1cc;
+  --color1: #8b827b;
   --color2: #eff3f9;
   --color4: #62638d;
   --color3: #000000;
@@ -15,23 +15,21 @@
 }
 
 h1 {
-  color: var(--color4);
-  font-size: 2rem;
+  color: var(--color3);
+  font-size: 1.5rem;
   font-weight: 700;
-  font-family: "Caveat", cursive;
-  font-optical-sizing: auto;
+  font-family: "Sniglet", system-ui;
+  font-weight: 400;
   font-style: normal;
-  margin: auto;
-  margin-bottom: 1rem;
+  margin-top: 60%;
+  margin-bottom: 0.5rem;
 }
 
-h3 {
-  color: var(--white);
-  background-color: var(--color1);
-  padding: 0.8rem;
-  border-radius: 8px;
-  margin: auto;
-  font-size: 1rem;
+h2 {
+  color: var(--black);
+  font-size: 1.2rem;
+  margin: 0 1rem 1rem 1rem;
+  font-weight: normal;
 }
 
 p {
@@ -43,7 +41,7 @@ p {
 html,
 body {
   height: calc(100vh + 50px);
-  background-color: #000;
+  background-color: var(--black);
   margin: 0;
   padding: 0;
   font-family: "Quicksand", sans-serif;
@@ -52,6 +50,14 @@ body {
   background-size: auto;
   background-position: top left;
   overflow: hidden;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: var(--color1);
+  margin: 3px 50px;
+  padding: 0;
 }
 
 .page-wrapper {
@@ -63,17 +69,19 @@ body {
 
 .container {
   text-align: center;
-  background-color: var(--white);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 2px var(--color3);
-  border: 2px solid var(--color3);
-  margin: 20px;
+  background-image: url("assets/board.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  aspect-ratio: 400 / 520;
+  width: 100%;
   max-width: 400px;
+  padding: 20px;
+  margin: 20px;
 }
 
-img {
-  width: 60%;
+footer > p {
+  font-size: 0.8rem;
 }
 
 @keyframes fadeIn {
@@ -98,9 +106,35 @@ img {
 }
 
 #warning-prediction {
-  min-height: 2.5em;
-  line-height: 1.3em;
+  font-size: 0.9rem;
+  min-height: 3.6em;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2em;
+}
+
+main h2 {
+  margin-top: 1rem;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--black);
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 1s linear infinite;
+  margin: auto;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Mobile Styles */
